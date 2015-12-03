@@ -1,5 +1,5 @@
 FROM centos7/jdk8
-MAINTAINER jyliu <jyliu@dataman-inc.colm>
+MAINTAINER jyliu <jyliu@dataman-inc.com>
 
 # install zookeeper
 RUN yum install -y wget && \
