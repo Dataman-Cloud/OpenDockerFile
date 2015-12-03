@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+set timeout 60
+
+spawn git clone git@github.com:Dataman-Cloud/jenkins-data.git
+
+expect "(yes/no)?"
+send "yes\r"
+
+expect eof
+exit
