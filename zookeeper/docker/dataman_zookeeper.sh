@@ -21,11 +21,6 @@ if [ ! -z "$ZKLIST" ];then
     done
     echo "$ZKID" > /data/zookeeper/snapshot/myid && \
     sed -i 's/--serverlist--/'$zks'/g' $ZOOCFGDIR/zoo.cfg
-elif [ "$CONFIG_SERVER" ];then
-    export DM_READ_URI=`curl $CONFIG_SERVER/config/$(hostname)/zookeeper/filelist.json`
-    /data/run/DM_DOCKER_URI.py
-elif [ ! -z  "$DM_READ_URI" ];then
-    /data/run/DM_DOCKER_URI.py
 else
     sed -i 's/--serverlist--//g' $ZOOCFGDIR/zoo.cfg
 fi
