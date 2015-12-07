@@ -1,4 +1,4 @@
-FROM centos7/jdk8
+FROM testregistry.dataman.io/centos7/jdk8:2015120701
 MAINTAINER jyliu <jyliu@dataman-inc.com>
 
 # install zookeeper
