@@ -2,8 +2,7 @@ FROM testregistry.dataman.io/centos7/jdk8:2015120701
 MAINTAINER jyliu <jyliu@dataman-inc.com>
 
 # install zookeeper
-RUN yum install -y wget && \
-    curl -o - http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz|tar -zxf - -C /opt \
+RUN curl -o - http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz | tar -zxf - -C /opt \
     && ln -s  /opt/zookeeper-3.4.6 /usr/local/zookeeper
 
 # create URI dir
@@ -22,8 +21,6 @@ COPY zkServer.sh /usr/local/zookeeper/bin/
 COPY dataman_zookeeper.sh /data/run/
 
 RUN chmod 755 /data/run/dataman_zookeeper.sh
-
-RUN yum clean all
 
 WORKDIR /usr/local/zookeeper
 EXPOSE 2181 2888 3888
