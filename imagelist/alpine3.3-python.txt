@@ -1,0 +1,2 @@
+demoregistry.dataman-inc.com/library/alpine3.3-python:latest
+demoregistry.dataman-inc.com/library/alpine3.3-python:20160614154500
