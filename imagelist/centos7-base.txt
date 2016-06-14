@@ -1,0 +1,2 @@
+demoregistry.dataman-inc.com/library/centos7-base:latest
+demoregistry.dataman-inc.com/library/centos7-base:20160614110448

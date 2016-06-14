@@ -1,0 +1,2 @@
+demoregistry.dataman-inc.com/library/centos7-jdk8-jenkins-slave-base:latest
+demoregistry.dataman-inc.com/library/centos7-jdk8-jenkins-slave-base:20160614105538
