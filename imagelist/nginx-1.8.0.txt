@@ -1,2 +1,3 @@
 demoregistry.dataman-inc.com/library/centos7-nginx-1.8.0:latest
 demoregistry.dataman-inc.com/library/centos7-nginx-1.8.0:20160614153011
+demoregistry.dataman-inc.com/library/centos7-nginx-1.8.0:20160617111630
