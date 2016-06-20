@@ -5,7 +5,7 @@ MAINTAINER weitao zhou <wtzhou@dataman-inc.com>
 ENV WSREP_CLUSTER_ADDRESS ""
 COPY my.cnf /etc/mysql/my.cnf
 COPY galera-entrypoint.sh galera-entrypoint.sh
-RUN chmod 755 galera-entrypoint.sh
+RUN chmod 755 galera-entrypoint.sh && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 EXPOSE 3306 4567 4568 4444
 
