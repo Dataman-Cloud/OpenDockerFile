@@ -9,7 +9,7 @@ COPY container-files/etc/yum.repos.d/* /etc/yum.repos.d/
 RUN \
     yum update -y && \
     yum install -y epel-release && \
-    yum install -y MariaDB-Galera-server MariaDB-client galera hostname net-tools pwgen && \
+    yum install -y MariaDB-server MariaDB-client hostname net-tools pwgen && \
     yum clean all && \
     rm -rf /var/lib/mysql/*
 
