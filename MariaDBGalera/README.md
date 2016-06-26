@@ -6,19 +6,19 @@ MariaDB Galera
 1. build the docker image
 
    ```bash
-   docker build -t mariadb-galera:10.1.14 .
+   docker build -t mariadb-galera:10.0 .
    ```
 
 2. start the first node at nodeA
 
    ```bash
-   docker run -p 3306:3306 -p 4567:4567 -p 4568:4568 -p 4444:4444  -v /data/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password --restart=always --name=master_db -d mariadb-galera:10.1.14
+   docker run -p 3306:3306 -p 4567:4567 -p 4568:4568 -p 4444:4444  -v /data/mysql:/var/lib/mysql -e MARIADB_USER=root -e MARIADB_PASS=password --restart=always --name=master_db -d mariadb-galera:10.0
    ```
 
 3. start the second, third nodes at the related nodes
 
    ```bash
-   docker run -p 3306:3306 -p 4567:4567 -p 4568:4568 -p 4444:4444  -v /data/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -e WSREP_CLUSTER_ADDRESS=IP.nodeA --name=joiner_db --restart=always -d mariadb-galera:10.1.14
+   docker run -p 3306:3306 -p 4567:4567 -p 4568:4568 -p 4444:4444  -v /data/mysql:/var/lib/mysql -e MARIADB_USER=root -e MARIADB_PASS=password -e WSREP_CLUSTER_ADDRESS=IP.nodeA --name=joiner_db --restart=always -d mariadb-galera:10.0
    ```
 
 4. check the cluster status

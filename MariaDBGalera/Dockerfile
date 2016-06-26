@@ -1,12 +1,28 @@
-FROM mariadb:10.1.14
-
+FROM centos:centos7
 MAINTAINER weitao zhou <wtzhou@dataman-inc.com>
 
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+# Copy only files required for the following RUN commands (leverage Docker caching)
+COPY container-files/etc/yum.repos.d/* /etc/yum.repos.d/
+
+RUN \
+    yum update -y && \
+    yum install -y epel-release && \
+    yum install -y MariaDB-Galera-server MariaDB-client galera hostname net-tools pwgen && \
+    yum clean all && \
+    rm -rf /var/lib/mysql/*
+
+# Add all remaining files to the container
+COPY container-files /
 ENV WSREP_CLUSTER_ADDRESS ""
-COPY my.cnf /etc/mysql/my.cnf
-COPY galera-entrypoint.sh galera-entrypoint.sh
-RUN chmod 755 galera-entrypoint.sh && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+# Add VOLUME to allow backup of data
+VOLUME ["/var/lib/mysql"]
+
+# Set TERM env to avoid mysql client error message "TERM environment variable not set" when running from inside the container
+ENV TERM xterm
 
 EXPOSE 3306 4567 4568 4444
 
-ENTRYPOINT ["/galera-entrypoint.sh"]
+CMD ["/run.sh"]
