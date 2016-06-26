@@ -19,7 +19,7 @@ trap terminate_db SIGINT SIGTERM
 install_db
 tail -F $ERROR_LOG & # tail all db logs to stdout 
 
-/usr/bin/mysqld_safe start --wsrep_cluster_address=gcomm://${WSREP_CLUSTER_ADDRESS} & # Launch DB server in the background
+/usr/bin/mysqld_safe --wsrep_cluster_address=gcomm://${WSREP_CLUSTER_ADDRESS} & # Launch DB server in the background
 MYSQLD_SAFE_PID=$!
 
 wait_for_db

@@ -1,6 +1,7 @@
 [galera]
 # Mandatory settings
-wsrep_provider=
+wsrep_on=ON
+wsrep_provider=/usr/lib64/galera/libgalera_smm.so
 wsrep_cluster_address=
 binlog_format=row
 default_storage_engine=InnoDB
