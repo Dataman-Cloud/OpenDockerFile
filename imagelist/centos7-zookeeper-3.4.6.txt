@@ -1,0 +1,2 @@
+demoregistry.dataman-inc.com/library/centos7-zookeeper-3.4.6:latest
+demoregistry.dataman-inc.com/library/centos7-zookeeper-3.4.6:20160712192532

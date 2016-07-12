@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM demoregistry.dataman-inc.com/library/centos7-base:latest
 MAINTAINER jyliu jyliu@dataman-inc.com
 
 # install epel
