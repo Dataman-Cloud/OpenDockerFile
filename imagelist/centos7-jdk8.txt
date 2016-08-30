@@ -1,2 +1,3 @@
 demoregistry.dataman-inc.com/library/centos7-jdk8:latest
 demoregistry.dataman-inc.com/library/centos7-jdk8:20160712191822
+demoregistry.dataman-inc.com/library/centos7-jdk8:20160830200050
