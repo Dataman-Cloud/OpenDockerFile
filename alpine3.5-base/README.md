@@ -8,9 +8,9 @@
 
 ## 使用说明
 
-编辑/etc/apk/repositories，然后在文件的最顶端添加(注意将3.4换成需要的版本)
+编辑/etc/apk/repositories，然后在文件的最顶端添加(注意将3.5换成需要的版本)
 
-    http://mirrors.ustc.edu.cn/alpine/v3.4/main/
+    http://mirrors.ustc.edu.cn/alpine/v3.5/main/
 
 [参考wiki](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management#Packages_and_Repositories)
 
