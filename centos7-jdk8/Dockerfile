@@ -5,3 +5,5 @@ MAINTAINER jyliu jyliu@dataman-inc.com
 RUN  yum install -y epel-release
 # install jdk
 RUN yum install -y java-1.8.0-openjdk && yum clean all
+# set JAVA_HOME
+ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0
