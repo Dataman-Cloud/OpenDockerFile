@@ -13,11 +13,11 @@ syncLimit=5
 dataDir=/data/zookeeper/snapshot
 # Place the dataLogDir to a separate physical disc for better performance
 # dataLogDir=/disk2/zookeeper
-dataLogDir=/data/zookeeper/zkLog
+dataLogDir=/data/zookeeper/zklog
 
 # the port at which the clients will connect
 clientPort=2181
-
+clientPortAddress=--listen_ip--
 # specify all zookeeper servers
 # The fist port is used by followers to connect to the leader
 # The second one is used for leader election

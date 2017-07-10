@@ -1,17 +1,15 @@
 FROM demoregistry.dataman-inc.com/library/centos7-jdk8:latest
-MAINTAINER jyliu <jyliu@dataman-inc.colm>
+MAINTAINER jyliu <jyliu@dataman-inc.com>
 
 # install zookeeper
-RUN curl -o - http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz|tar -zxf - -C /opt \
+RUN curl -o - http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz|tar -zxf - -C /opt \
     && ln -s  /opt/zookeeper-3.4.6 /usr/local/zookeeper
-
-RUN yum install -y iproute && yum clean all
 
 # create URI dir
 RUN mkdir -p /data/run && \
     mkdir -p /data/logs && \
 # create zookeeper dir
-    mkdir -p /data/zookeeper/zkLog && \
+    mkdir -p /data/zookeeper/zklog && \
     mkdir -p /data/zookeeper/snapshot
 
 # copy zoo.cfg
