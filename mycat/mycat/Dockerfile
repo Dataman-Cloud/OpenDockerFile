@@ -1,4 +1,4 @@
-FROM offlineregistry.dataman-inc.com:5000/library/mycat-yx-base:latest
+FROM offlineregistry.dataman-inc.com:5000/library/mycat-base:latest
 MAINTAINER yhchen <yhchen@dataman-inc.com>
 
 COPY data/ /data/
