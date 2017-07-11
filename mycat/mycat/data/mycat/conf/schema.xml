@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://org.opencloudb/">
+        <schema name="ccbc" checkSQLschema="false" sqlMaxLimit="100000" dataNode="dnccbc" ></schema>
+        <schema name="ssp" checkSQLschema="false" sqlMaxLimit="100000" dataNode="dnssp" ></schema>
+        <schema name="camb" checkSQLschema="false" sqlMaxLimit="100000" dataNode="dncamb" ></schema>
+        <schema name="cambbatch" checkSQLschema="false" sqlMaxLimit="100000" dataNode="dncambbatch" ></schema>
+        <schema name="ztx" checkSQLschema="false" sqlMaxLimit="100000" dataNode="dnztx" ></schema>
+
+        <dataNode name="dnccbc" dataHost="dhccbc" database="ccbc" />
+        <dataNode name="dnssp" dataHost="dhssp" database="ssp" />
+        <dataNode name="dncamb" dataHost="dhcamb" database="camb" />
+        <dataNode name="dncambbatch" dataHost="dncambbatch" database="cambbatch" />
+        <dataNode name="dnztx" dataHost="dhztx" database="ztx" />
+        
+        <dataHost name="dhztx" maxCon="1000" minCon="50" balance="3" writeType="0" dbType="mysql" dbDriver="native">
+                <heartbeat>select user() </heartbeat>
+                <writeHost host="whztx09" url="172.16.42.14:3306" user="ztxusr"  password="ztxusr" >
+                </writeHost>
+        </dataHost>  
+
+        <dataHost name="dhccbc" maxCon="1000" minCon="50" balance="3" writeType="0" dbType="mysql" dbDriver="native">
+                <heartbeat>select user() </heartbeat>
+                <writeHost host="whccbc36" url="172.16.42.14:3306" user="ccbcusr"  password="ccbcusr" >
+                        <readHost host="rhccbc36" url="172.16.42.14:3306" user="reader"  password="reader"/>
+                </writeHost>
+        </dataHost>
+
+        <dataHost name="dhssp" maxCon="1000" minCon="50" balance="3" writeType="0" dbType="mysql" dbDriver="native">
+                <heartbeat>select user() </heartbeat>
+                <writeHost host="whssp36" url="172.16.42.14:3306" user="sspusr"  password="sspusr" >
+                        <readHost host="rhssp36" url="172.16.42.14:3306" user="reader"  password="reader"/>
+                </writeHost>
+        </dataHost>
+        
+        <dataHost name="dhcamb" maxCon="1000" minCon="50" balance="3" writeType="0" dbType="mysql" dbDriver="native">
+                <heartbeat>select user() </heartbeat>
+                <writeHost host="whcamb36" url="172.16.42.14:3306" user="cambusr"  password="cambusr" >
+                        <readHost host="rhcamb36" url="172.16.42.14:3306" user="reader"  password="reader"/>
+                </writeHost>
+        </dataHost> 
+
+        <dataHost name="dncambbatch" maxCon="1000" minCon="50" balance="3" writeType="0" dbType="mysql" dbDriver="native">
+                <heartbeat>select user() </heartbeat>
+                <writeHost host="whcambbatch36" url="172.16.42.14:3306" user="cambbatch"  password="cambbatch" >
+                        <readHost host="rhcambbatch36" url="172.16.42.14:3306" user="reader"  password="reader"/>
+                </writeHost>
+        </dataHost> 
+</mycat:schema>

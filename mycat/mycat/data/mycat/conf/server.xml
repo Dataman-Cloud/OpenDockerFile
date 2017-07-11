@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- - - Licensed under the Apache License, Version 2.0 (the "License"); 
+	- you may not use this file except in compliance with the License. - You 
+	may obtain a copy of the License at - - http://www.apache.org/licenses/LICENSE-2.0 
+	- - Unless required by applicable law or agreed to in writing, software - 
+	distributed under the License is distributed on an "AS IS" BASIS, - WITHOUT 
+	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. - See the 
+	License for the specific language governing permissions and - limitations 
+	under the License. -->
+<!DOCTYPE mycat:server SYSTEM "server.dtd">
+<mycat:server xmlns:mycat="http://org.opencloudb/">
+	<system>
+	<property name="defaultSqlParser">druidparser</property>
+      <!--  <property name="useCompression">1</property>--> <!--1Ϊ¿ªÆmysqlѹËЭÒ-->
+	<!-- <property name="processorBufferChunk">40960</property> -->
+	<!-- 
+	<property name="processors">1</property> 
+	<property name="processorExecutor">32</property> 
+	 -->
+		<!--ĬÈÊ65535 64K ÓÓsql½âʱ×´ó¾³¤¶È-->
+		<!--<property name="maxStringLiteralLength">65535</property>-->
+		<!--<property name="sequnceHandlerType">0</property>-->
+		<!--<property name="backSocketNoDelay">1</property>-->
+		<!--<property name="frontSocketNoDelay">1</property>-->
+		<!--<property name="processorExecutor">16</property>-->
+		<!-- 
+			<property name="mutiNodeLimitType">1</property> 0£º¿ªÆСÊ¼¶£¨ĬÈ£© £»1£º¿ªÆÒ¼¶Ê¾ÝÅò   	<property name="mutiNodePatchSize">100</property> Ò¼¶ÊÅÐÅ
+			<property name="processors">32</property> <property name="processorExecutor">32</property> 
+			<property name="serverPort">8066</property> <property name="managerPort">9066</property> 
+			<property name="idleTimeout">300000</property> <property name="bindIp">0.0.0.0</property> 
+			<property name="frontWriteQueueSize">4096</property> <property name="processors">32</property> -->
+        <property name="processorBufferChunk">5120</property>
+        <property name="sqlExecuteTimeout">30000</property>
+	</system>
+        <user name="ccbcusr">
+                <property name="password">ccbcusr</property>
+                <property name="schemas">ccbc</property>
+        </user>
+        <user name="sspusr">
+                <property name="password">sspusr</property>
+                <property name="schemas">ssp</property>
+        </user>
+              <user name="cambusr">
+                <property name="password">cambusr</property>
+                <property name="schemas">camb</property>
+        </user>
+        <user name="cambbatch">
+                <property name="password">cambbatch</property>
+                <property name="schemas">cambbatch</property>
+        </user>
+        <user name="ztxusr">
+                <property name="password">ztxusr</property>
+                <property name="schemas">ztx</property>
+        </user>
+	<!-- 
+	<quarantine> 
+	   <whitehost>
+	      <host host="127.0.0.1" user="mycat"/>
+	      <host host="127.0.0.2" user="mycat"/>
+	   </whitehost>
+       <blacklist check="false"></blacklist>
+	</quarantine>
+	-->
+
+</mycat:server>
